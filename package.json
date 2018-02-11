@@ -4,7 +4,8 @@
   "description": "Fetch rates from various crypto markets and provide quotes",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint ."
   },
   "keywords": [
     "Crypto",
@@ -15,6 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "gdax": "^0.5.1",
+    "highland": "^2.11.1",
+    "lodash": "^4.17.5",
     "nconf": "^0.10.0",
     "polka": "^0.3.2",
     "request": "^2.83.0",

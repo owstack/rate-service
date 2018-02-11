@@ -1,12 +1,40 @@
 const config = require('./config');
 const polka = require('polka');
+const Gdax = require('./lib/class/gdax');
 const market = {
     gdax: {
-        btcusd: require('./lib/gdax/btcusd')
+        // bchusd: new Gdax({
+        //     pair: 'BCH-USD',
+        //     takerFee: 0.25,
+        //     baseCurrencyPrecision: 8,
+        //     quoteCurrencyPrecision: 2
+        // }),
+        btcusd: new Gdax({
+            pair: 'BTC-USD',
+            takerFee: 0.25,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        }),
+        // ethusd: new Gdax({
+        //     pair: 'ETH-USD',
+        //     takerFee: 0.3,
+        //     baseCurrencyPrecision: 18,
+        //     quoteCurrencyPrecision: 2
+        // }),
+        // ltcusd: new Gdax({
+        //     pair: 'LTC-USD',
+        //     takerFee: 0.3,
+        //     baseCurrencyPrecision: 8,
+        //     quoteCurrencyPrecision: 2
+        // })
     }
 };
 
-market.gdax.btcusd.start();
+Object.keys(market).forEach((marketName) => {
+    Object.keys(market[marketName]).forEach((pairName) => {
+        market[marketName][pairName].start();
+    });
+});
 
 const getOrderBook = (req, res) => {
     const name = req.params.exchange;
