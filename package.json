@@ -31,5 +31,16 @@
     "eslint": "^4.17.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.0.0"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owstack/rate-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/owstack/rate-service/issues"
+  },
+  "homepage": "https://github.com/owstack/rate-service#readme"
 }

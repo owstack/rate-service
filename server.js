@@ -1,7 +1,7 @@
 const config = require('./config');
 const polka = require('polka');
-const Bitstamp = require('./lib/class/bitstamp');
-const Gdax = require('./lib/class/gdax');
+const Bitstamp = require('./lib/bitstampMarket');
+const Gdax = require('./lib/gdaxMarket');
 const market = {
     bitstamp: {
         bchusd: new Bitstamp({
@@ -118,5 +118,5 @@ polka()
     .get('/convert/:exchange/:pair/:amount', getConversionRate)
     .listen(config.get('port'))
     .then(() => {
-        console.log(`Listening on port ${config.get('port')}`);
+        console.log(`Listening on port ${config.get('PORT')}`);
     });

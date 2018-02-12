@@ -1,7 +1,7 @@
 const nconf = require('nconf');
 
 function Config() {
-    nconf.argv().env();
+    nconf.argv().env(); // accept command line arguments and environment variables
     var environment = nconf.get('NODE_ENV') || 'development';
     nconf.file(environment, `./config/${environment.toLowerCase()}.json`);
 }
