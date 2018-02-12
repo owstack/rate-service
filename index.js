@@ -1,34 +1,68 @@
 const config = require('./config');
 const polka = require('polka');
+const Bitstamp = require('./lib/class/bitstamp');
 const Gdax = require('./lib/class/gdax');
 const market = {
+    bitstamp: {
+        bchusd: new Bitstamp({
+            pair: 'bchusd',
+            takerFee: 0.25,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        }),
+        btcusd: new Bitstamp({
+            pair: 'btcusd',
+            takerFee: 0.25,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        }),
+        ethusd: new Bitstamp({
+            pair: 'ethusd',
+            takerFee: 0.25,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        }),
+        ltcusd: new Bitstamp({
+            pair: 'ltcusd',
+            takerFee: 0.25,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        })
+    },
     gdax: {
-        // bchusd: new Gdax({
-        //     pair: 'BCH-USD',
-        //     takerFee: 0.25,
-        //     baseCurrencyPrecision: 8,
-        //     quoteCurrencyPrecision: 2
-        // }),
+        bchusd: new Gdax({
+            pair: 'BCH-USD',
+            takerFee: 0.25,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        }),
         btcusd: new Gdax({
             pair: 'BTC-USD',
             takerFee: 0.25,
             baseCurrencyPrecision: 8,
             quoteCurrencyPrecision: 2
         }),
-        // ethusd: new Gdax({
-        //     pair: 'ETH-USD',
-        //     takerFee: 0.3,
-        //     baseCurrencyPrecision: 18,
-        //     quoteCurrencyPrecision: 2
-        // }),
-        // ltcusd: new Gdax({
-        //     pair: 'LTC-USD',
-        //     takerFee: 0.3,
-        //     baseCurrencyPrecision: 8,
-        //     quoteCurrencyPrecision: 2
-        // })
+        ethusd: new Gdax({
+            pair: 'ETH-USD',
+            takerFee: 0.3,
+            baseCurrencyPrecision: 18,
+            quoteCurrencyPrecision: 2
+        }),
+        ltcusd: new Gdax({
+            pair: 'LTC-USD',
+            takerFee: 0.3,
+            baseCurrencyPrecision: 8,
+            quoteCurrencyPrecision: 2
+        })
     }
 };
+
+const timer = setInterval(() => {
+    console.log(`\n${new Date} Market Asks:`);
+    console.log(`Bitstamp - BCH: $${market.bitstamp.bchusd.orderbook.asks[0][0].toFixed(2)} BTC: $${market.bitstamp.btcusd.orderbook.asks[0][0].toFixed(2)} ETH: $${market.bitstamp.ethusd.orderbook.asks[0][0].toFixed(2)} LTC: $${market.bitstamp.ltcusd.orderbook.asks[0][0].toFixed(2)}`);
+    console.log(`GDAX     - BCH: $${market.gdax.bchusd.orderbook.asks[0][0].toFixed(2)} BTC: $${market.gdax.btcusd.orderbook.asks[0][0].toFixed(2)} ETH: $${market.gdax.ethusd.orderbook.asks[0][0].toFixed(2)} LTC: $${market.gdax.ltcusd.orderbook.asks[0][0].toFixed(2)}`);
+}, 5000);
+timer.unref();
 
 Object.keys(market).forEach((marketName) => {
     Object.keys(market[marketName]).forEach((pairName) => {

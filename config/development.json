@@ -1,4 +1,3 @@
 {
-    "port": 3000,
-    "refreshRate": 60000
+    "port": 3000
 }
