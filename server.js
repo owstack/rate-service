@@ -3,6 +3,7 @@ const polka = require('polka');
 const Bitstamp = require('./lib/bitstampMarket');
 const Gdax = require('./lib/gdaxMarket');
 const Gemini = require('./lib/geminiMarket');
+const Kraken = require('./lib/krakenMarket');
 
 const market = {
     bitstamp: {
@@ -67,6 +68,14 @@ const market = {
         ethusd: new Gemini({
             pair: 'ethusd',
             takerFee: 0.25,
+            baseCurrencyPrecision: 18,
+            quoteCurrencyPrecision: 2
+        })
+    },
+    kraken: {
+        btcusd: new Kraken({
+            pair: 'XXBTZUSD',
+            takerFee: 0.25,
             baseCurrencyPrecision: 8,
             quoteCurrencyPrecision: 2
         })
@@ -78,6 +87,7 @@ const timer = setInterval(() => {
     console.log(`Bitstamp - BCH: $${market.bitstamp.bchusd.orderbook.asks[0][0].toFixed(2)} BTC: $${market.bitstamp.btcusd.orderbook.asks[0][0].toFixed(2)} ETH: $${market.bitstamp.ethusd.orderbook.asks[0][0].toFixed(2)} LTC: $${market.bitstamp.ltcusd.orderbook.asks[0][0].toFixed(2)}`);
     console.log(`GDAX     - BCH: $${market.gdax.bchusd.orderbook.asks[0][0].toFixed(2)} BTC: $${market.gdax.btcusd.orderbook.asks[0][0].toFixed(2)} ETH: $${market.gdax.ethusd.orderbook.asks[0][0].toFixed(2)} LTC: $${market.gdax.ltcusd.orderbook.asks[0][0].toFixed(2)}`);
     console.log(`Gemini   -               BTC: $${market.gemini.btcusd.orderbook.asks[0][0].toFixed(2)} ETH: $${market.gemini.ethusd.orderbook.asks[0][0].toFixed(2)}`);
+    console.log(`Kraken   -               BTC: $${market.kraken.btcusd.orderbook.asks[0][0].toFixed(2)}`);
 }, 5000);
 timer.unref();
 
