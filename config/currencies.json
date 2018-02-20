@@ -1,0 +1,39 @@
+{
+    "currencies": {
+        "BCH": {
+            "symbol": {
+                "char": "₿",
+                "html": "&#8383;"
+            },
+            "precision": 8
+        },
+        "BTC": {
+            "symbol": {
+                "char": "₿",
+                "html": "&#8383;"
+            },
+            "precision": 8
+        },
+        "ETH": {
+            "symbol": {
+                "char": "Ξ",
+                "html": "&Xi;"
+            },
+            "precision": 18
+        },
+        "LTC": {
+            "symbol": {
+                "char": "Ł",
+                "html": "&#321;"
+            },
+            "precision": 8
+        },
+        "USD": {
+            "symbol": {
+                "char": "$",
+                "html": "$"
+            },
+            "precision": 2
+        }
+    }
+}

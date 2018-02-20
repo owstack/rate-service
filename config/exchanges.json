@@ -1,0 +1,104 @@
+{
+    "exchanges": {
+        "bitstamp": [
+            {
+                "pair": "bchusd",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "btcusd",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ethusd",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 18,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ltcusd",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            }
+        ],
+        "gdax": [
+            {
+                "pair": "bchusd",
+                "alias": "BCH-USD",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "btcusd",
+                "alias": "BTC-USD",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ethusd",
+                "alias": "ETH-USD",
+                "takerFee": 0.3,
+                "baseCurrencyPrecision": 18,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ltcusd",
+                "alias": "LTC-USD",
+                "takerFee": 0.3,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            }
+        ],
+        "gemini": [
+            {
+                "pair": "btc",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ethusd",
+                "takerFee": 0.25,
+                "baseCurrencyPrecision": 18,
+                "quoteCurrencyPrecision": 2
+            }
+        ],
+        "kraken": [
+            {
+                "pair": "bchusd",
+                "alias": "BCHUSD",
+                "takerFee": 0.26,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "btcusd",
+                "alias": "XXBTZUSD",
+                "takerFee": 0.26,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ethusd",
+                "alias": "XETHZUSD",
+                "takerFee": 0.26,
+                "baseCurrencyPrecision": 18,
+                "quoteCurrencyPrecision": 2
+            },
+            {
+                "pair": "ltcusd",
+                "alias": "XLTCZUSD",
+                "takerFee": 0.26,
+                "baseCurrencyPrecision": 8,
+                "quoteCurrencyPrecision": 2
+            }
+        ]
+    }
+}
