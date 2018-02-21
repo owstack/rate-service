@@ -58,7 +58,7 @@
         ],
         "gemini": [
             {
-                "pair": "btc",
+                "pair": "btcusd",
                 "takerFee": 0.25,
                 "baseCurrencyPrecision": 8,
                 "quoteCurrencyPrecision": 2
