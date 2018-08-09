@@ -1,6 +1,6 @@
 {
   "name": "ows-rate-service",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Fetch rates from various crypto markets and provide quotes",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,6 @@
   "author": "Ian Patton <ian@owstack.org>",
   "license": "MIT",
   "dependencies": {
-    "gdax": "^0.5.1",
     "highland": "^2.13.0",
     "lodash": "^4.17.10",
     "nconf": "^0.10.0",
