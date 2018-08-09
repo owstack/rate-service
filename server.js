@@ -3,7 +3,7 @@ const polka = require('polka');
 
 const markets = require('./lib/markets');
 
-const getHandler = (req, res, next) => {
+const getHandler = (req, res) => {
     const action = req.params.action;
     let exchange = req.params.exchange;
     if (exchange.indexOf(',') > -1) {
@@ -32,7 +32,10 @@ const getHandler = (req, res, next) => {
             res.end(JSON.stringify({price: markets.getConversionRate(exchange, pair, amount)}, null, 4));
             break;
         default:
-            next();
+            res.statusCode = 400;
+            res.end(JSON.stringify({
+                error: 'Invalid request'
+            }));
     }
 };
 
