@@ -1,5 +1,6 @@
 {
     "port": 3000,
     "exchanges": ["bitstamp", "gdax", "gemini", "kraken"],
-    "pairs": ["bchusd", "btcusd", "ethusd", "ltcusd"]
+    "pairs": ["bchusd", "btcusd", "ethusd", "ltcusd"],
+    "startupTimeoutSeconds": 60
 }

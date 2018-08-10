@@ -14,13 +14,7 @@ function Config() {
     nconf.argv() // accept command line arguments
         .env({
             lowerCase: true,
-            whitelist: ['port', 'markets'],
-            transform: (obj) => {
-                if (obj.key === 'markets') {
-                    obj.value = obj.value.split(',');
-                }
-                return obj;
-            }
+            whitelist: ['port', 'oer_app_id', 'oer_refresh_minutes']
         })   //  accept environment variables
         .file('currencies', './config/currencies.json')
         .file('exchanges', './config/exchanges.json')
