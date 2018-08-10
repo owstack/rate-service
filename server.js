@@ -10,10 +10,8 @@ let started = false;
 const getHandler = (req, res) => {
     const action = req.params.action;
     let exchange = req.params.exchange;
-    if (exchange.indexOf(',') > -1) {
-        exchange = exchange.split(',');
-        exchange.clean('');
-    }
+    exchange = exchange.split(',');
+    exchange.clean('');
     const pair = req.params.pair;
     const amount = Number(req.params.amount);
     let message = `[api] GET ${action} ${exchange} ${pair}`;
@@ -24,6 +22,18 @@ const getHandler = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const requestCurrencyCodes = pair.match(/.{1,3}/g);
     const targetCurrency = requestCurrencyCodes[0].toUpperCase();
+    let validExchanges = true;
+    exchange.forEach((ex) => {
+        if (!config.get('exchanges')[ex]) {
+            validExchanges = false;
+        }
+    });
+    if (!validExchanges) {
+        res.statusCode = 400;
+        return res.end(JSON.stringify({
+            error: 'Invalid request'
+        }));
+    }
     switch (action) {
         case 'buy':
             res.end(JSON.stringify(forexRates.convert(markets.getMarketBuyPrice(exchange, pair, amount), targetCurrency), null, 4));
