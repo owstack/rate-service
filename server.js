@@ -46,7 +46,13 @@ const getHandler = (req, res) => {
             res.end(JSON.stringify(markets.getOrderBook(exchange, pair), null, 4));
             break;
         case 'convert':
-            res.end(JSON.stringify({rate: markets.getConversionRate(exchange, pair, forexRates.convertToUSD(amount, targetCurrency))}, null, 4));
+            try {
+                res.end(JSON.stringify({rate: markets.getConversionRate(exchange, pair, forexRates.convertToUSD(amount, targetCurrency))}, null, 4));
+            } catch (e) {
+                console.error(e);
+                res.statusCode = 500;
+                res.end(JSON.stringify({error: e.message}));
+            }
             break;
         default:
             res.statusCode = 400;
