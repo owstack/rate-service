@@ -52,8 +52,9 @@ $ curl http://localhost:3000/sell/gdax,gemini,bitstamp/ethusd/10
     }
 ]
 
-# Get conversion rate for $1000 USD to BTC
-$ curl http://localhost:3000/convert/gdax,gemini,bitstamp,kraken/btcusd/1000
+# Get conversion rate for $1000 CAD to BTC
+# Note: Uses USD market pair and OER for exchange rate
+$ curl http://localhost:3000/convert/gdax,gemini,bitstamp,kraken/btcusd/1000/cad
 {
     "rate": "0.09503057"
 }
