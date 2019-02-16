@@ -82,4 +82,10 @@ async function start() {
     started = true;
 }
 
-start();
+(async () => {
+    try {
+        await start();
+    } catch (e) {
+        console.error(e);
+    }
+})();

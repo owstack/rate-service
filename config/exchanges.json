@@ -56,20 +56,6 @@
                 "quoteCurrencyPrecision": 2
             }
         ],
-        "gemini": [
-            {
-                "pair": "btcusd",
-                "takerFee": 0.25,
-                "baseCurrencyPrecision": 8,
-                "quoteCurrencyPrecision": 2
-            },
-            {
-                "pair": "ethusd",
-                "takerFee": 0.25,
-                "baseCurrencyPrecision": 18,
-                "quoteCurrencyPrecision": 2
-            }
-        ],
         "kraken": [
             {
                 "pair": "bchusd",
