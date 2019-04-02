@@ -1,6 +1,6 @@
 {
   "name": "ows-rate-service",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Fetch rates from various crypto markets and provide quotes",
   "main": "index.js",
   "scripts": {
